@@ -10,15 +10,51 @@ import {
   TouchableOpacity
 } from 'react-native';
 import SvgBack from './back';
-import Like from './svg/like';
+// import Like from './svg/like';
 import Share from './svg/share';
 import Talk from './svg/talkbuble';
 import Renc from './svg/renc';
 import Cupl from './svg/cupl';
+
+import Svg, { Circle, Path } from 'react-native-svg'
 export default class Stocks extends Component{
+constructor(){
+    super();
+    this.state ={
+        
+        done:false
+        
+    }
+}
+onLabelClick=()=>{
+this.setState((state)=>{
+    return {done: !state.done}
+})
+}
+
 
 
     render(){
+      
+        const {done} = this.state;
+        this.currentColor= "yellow";
+        if(done){
+            
+            this.currentColor= "yellow"
+         } else{
+            
+            this.currentColor = "#C4C4C4"
+         }
+        const Like = props => (
+            <Svg  width={36} height={36} fill="none" {...props}>
+              <Circle cx={18} cy={18} r={17.5} fill="#fff" stroke="#EDEDED" />
+              <Path 
+                d="M25.612 11.888a4.735 4.735 0 00-6.7 0l-.912.913-.913-.913a4.737 4.737 0 00-6.7 6.7l.913.912 6.7 6.7 6.7-6.7.912-.913a4.736 4.736 0 000-6.699z"
+                fill={this.currentColor}
+              />
+            </Svg>
+          )
+         
         return(
             <View style ={styles.container}>
                 <View style = {styles.header}>
@@ -47,8 +83,8 @@ export default class Stocks extends Component{
                         <View style = {{flex:1,flexDirection:'row',borderColor:'#EDEDED',marginTop:17,borderBottomWidth:1,marginLeft:15,marginRight:15}}>
                             <View style = {{flex:1,flexDirection:'row',justifyContent:'flex-start',marginLeft:15}}><Image style ={{marginRight:10}} source={require('../img/1212.png')}/>
                             <Talk/></View>
-                            <View style = {{flex:1,flexDirection:'row',justifyContent:'flex-end',marginRight:15}}><TouchableOpacity><Like/></TouchableOpacity>
-                           <TouchableOpacity><Share style={{marginLeft:15}}/></TouchableOpacity></View>
+                            <View style = {{flex:1,flexDirection:'row',justifyContent:'flex-end',marginRight:15}}><TouchableOpacity onPress ={this.onLabelClick}><Like/></TouchableOpacity>
+                           <TouchableOpacity ><Share style={{marginLeft:15}}/></TouchableOpacity></View>
                            
                         </View>
                         <View style = {{flex:1,flexDirection:'column',borderColor:'#EDEDED',borderBottomWidth:1,marginLeft:15,marginRight:15}}>
@@ -91,6 +127,9 @@ export default class Stocks extends Component{
 }
 
 const styles = StyleSheet.create({
+   btn:{
+    color:"yellow"
+   },
     container:{
         flex:1
     },
