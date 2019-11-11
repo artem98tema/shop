@@ -15,6 +15,8 @@ import Share from './svg/share';
 import Talk from './svg/talkbuble';
 import Renc from './svg/renc';
 import Cupl from './svg/cupl';
+import Dress from'./svg/dres';
+
 
 import Svg, { Circle, Path } from 'react-native-svg'
 export default class Stocks extends Component{
@@ -68,39 +70,51 @@ this.setState((state)=>{
                 </View>
                 <View style = {styles.main}>
                     <View style={styles.content}>
-                        <View style = {styles.main__image}>
-                            <Image style={{
-                                resizeMode: "stretch",width:'100%',height:175}} 
+                        <View >
+                            <Image style={styles.main__image} 
                                 source ={require('../img/imag.png')}/>
                         </View>
                             <View style = {styles.main__info}>
                                 <Text style = {styles.info__text}>Mango
-                                    <Text>Одежда, обувь, аксессуры</Text>
                                 </Text>
+                                <Dress style ={styles.dres}/>
+                                <Text style = {styles.text_inf}>Одежда, обувь, аксессуры</Text>
                             </View>
                    </View>
                    <View style ={styles.main__content}>
-                        <View style = {{flex:1,flexDirection:'row',borderColor:'#EDEDED',marginTop:17,borderBottomWidth:1,marginLeft:15,marginRight:15}}>
-                            <View style = {{flex:1,flexDirection:'row',justifyContent:'flex-start',marginLeft:15}}><Image style ={{marginRight:10}} source={require('../img/1212.png')}/>
-                            <Talk/></View>
-                            <View style = {{flex:1,flexDirection:'row',justifyContent:'flex-end',marginRight:15}}><TouchableOpacity onPress ={this.onLabelClick}><Like/></TouchableOpacity>
-                           <TouchableOpacity ><Share style={{marginLeft:15}}/></TouchableOpacity></View>
+                        <View style = {styles.main__buttons}>
+                            <View style = {styles.button__logo}>
+                                <Image style ={styles.logo__image} source={require('../img/1212.png')}/>
+                                <Talk/>
+                            </View>
+                            <View style = {styles.button__like}>
+                                <TouchableOpacity onPress ={this.onLabelClick}>
+                                    <Like/>
+                                </TouchableOpacity>
+                                <TouchableOpacity >
+                                    <Share style={styles.share__svg}/>
+                                </TouchableOpacity>
+                           </View>
                            
                         </View>
-                        <View style = {{flex:1,flexDirection:'column',borderColor:'#EDEDED',borderBottomWidth:1,marginLeft:15,marginRight:15}}>
-                            <View style = {{flex:1,flexDirection:'row',alignItems:'center'}}><Cupl/><Text> Москва</Text></View>
-                            <View style = {{flex:1,flexDirection:'row',alignItems:'center'}}>
+                        <View style = {styles.date}>
+                            <View style = {styles.date__where}>
+                                <Cupl/>
+                                <Text> Москва</Text>
+                            </View>
+                            <View style = {styles.date__when}>
                                 <Text>14 октября - 21 ноября</Text>
+                                <Renc style = {{marginLeft:10}}/>
                                 {/* <Renc style={{marginLeft:15}} /> */}
                             </View>
                         </View>
                         
-                        <View style = {{flex:5,flexDirection:'column',marginLeft:15,marginRight:15,marginTop:5}}>
-                        <ScrollView>
-                            <Text style ={{fontSize:25,fontWeight:'bold',marginBottom:2}}>Скидка на пылесосы</Text>
-                            <Text style ={{fontSize:18,fontWeight:'bold',marginBottom:2,}}>При покупке 2 пылесосов 3 в подарок</Text>
+                        <View style = {styles.description}>
+                            <ScrollView>
+                                <Text style ={styles.description__title}>Скидка на пылесосы</Text>
+                                <Text style ={styles.description__titleAfter}>При покупке 2 пылесосов 3 в подарок</Text>
                             
-                            <Text style ={{fontSize:18,marginBottom:2,}}>Скидка на пылесосы в течение 1 недели!Скидка на пылесосы в течение 1 недели!
+                                <Text style ={styles.description__text}>
                                 Скидка на пылесосы в течение 1 недели!Скидка на пылесосы в течение 1 недели!
                                 Скидка на пылесосы в течение 1 недели!Скидка на пылесосы в течение 1 недели!
                                 Скидка на пылесосы в течение 1 недели!Скидка на пылесосы в течение 1 недели!
@@ -114,13 +128,13 @@ this.setState((state)=>{
                                 Скидка на пылесосы в течение 1 недели!Скидка на пылесосы в течение 1 недели!
                                 Скидка на пылесосы в течение 1 недели!Скидка на пылесосы в течение 1 недели!
                                 Скидка на пылесосы в течение 1 недели!Скидка на пылесосы в течение 1 недели!
-                            </Text>
+                                Скидка на пылесосы в течение 1 недели!Скидка на пылесосы в течение 1 недели!
+                                </Text>
                             </ScrollView>
                         </View>
                          
                    </View>
                 </View>
-                
             </View>
         )
     }
@@ -130,12 +144,89 @@ const styles = StyleSheet.create({
    btn:{
     color:"yellow"
    },
+   date__where:{
+    flex:1,
+    flexDirection:'row',
+    alignItems:'center'
+   },
+   date__when:{
+    flex:1,
+    flexDirection:'row',
+    alignItems:'center',
+    marginLeft:13
+   },
+   date:{
+    flex:1,
+    flexDirection:'column',
+    borderColor:'#EDEDED',
+    borderBottomWidth:1,
+    marginLeft:15,
+    marginRight:15
+   },
+   description__text:{
+    fontSize:18,
+    marginBottom:2
+   },
+   description__titleAfter:{
+    fontSize:18,
+    fontWeight:'bold',
+    marginBottom:2
+   },
+   text_inf:{
+    flexDirection:'row',
+    textAlignVertical:'center',
+    justifyContent:'center',
+    alignItems:'center',
+    flex:3,
+   },
+   dres:{
+    marginRight:5,
+    marginTop:14
+   },
+   description__title:{
+    fontSize:25,
+    fontWeight:'bold',
+    marginBottom:2
+   },
+   description:{
+    flex:5,
+    flexDirection:'column',
+    marginLeft:15,
+    marginRight:15,
+    marginTop:5
+   },
+   share__svg:{
+    marginLeft:15
+   },
+   logo__image:{
+    marginRight:10
+   },
+   button__logo:{
+    flex:1,
+    flexDirection:'row',
+    justifyContent:'flex-start',
+    
+   },
+   button__like:{
+    flex:1,
+    flexDirection:'row',
+    justifyContent:'flex-end',
+    marginRight:15
+   },
+   main__buttons:{
+    flex:1,
+    flexDirection:'row',
+    borderColor:'#EDEDED',
+    marginTop:17,
+    borderBottomWidth:1,
+    marginLeft:15,
+    marginRight:15
+   },
     container:{
         flex:1
     },
     content:{
         flex:1,
-        
     },
     main__content:{
         backgroundColor:'#FFFFFF',
@@ -146,11 +237,14 @@ const styles = StyleSheet.create({
         borderRadius:10
     },
     main__image:{
-        
+        resizeMode: "stretch",
+        width:'100%',
+        height:175
     },
     main__info:{
         backgroundColor:'#F7F7F7',
         height:40,
+        flexDirection:'row'
         
     },
     info__text:{
@@ -175,18 +269,19 @@ const styles = StyleSheet.create({
     header__title:{
         fontSize: 30,
     fontWeight:'bold', 
-    },main:{
+    },
+    main:{
         flex:9,
         backgroundColor:'#878787',
         margin:15,
         borderWidth:1,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    elevation: 1,
-    borderColor: '#ddd',
-        
+        shadowOpacity: 0.8,
+        shadowRadius: 2,
+        elevation: 1,
+        borderColor: '#ddd',
+        borderRadius:10
     },
     
 })
