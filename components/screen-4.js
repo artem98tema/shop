@@ -165,12 +165,11 @@ const styles = StyleSheet.create({
    },
    description__text:{
     fontSize:18,
-    marginBottom:2
    },
    description__titleAfter:{
     fontSize:18,
     fontWeight:'bold',
-    marginBottom:2
+    marginBottom:10
    },
    text_inf:{
     flexDirection:'row',

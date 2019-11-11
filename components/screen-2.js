@@ -25,11 +25,11 @@ export default class Screen2 extends Component {
             <Image source ={require('../img/shop2.png')} styles ={{width:100,height:100}}/>
             <Text style = {styles.main__text}>Следите за скидками</Text>
             
-        {/* <View style ={styles.main__load}>
+         <View style ={styles.main__load}>
             <Image source ={require('../img/circle.png')} styles ={{width:100,height:100}}/>
             <Image source ={require('../img/oval.png')} styles ={{width:100,height:100}}/>
             <Image source ={require('../img/circle.png')} styles ={{width:100,height:100}}/>
-        </View> */}
+        </View> 
         </View>
         <View style = {styles.footer}></View>
       </View>
